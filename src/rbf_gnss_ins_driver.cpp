@@ -26,31 +26,31 @@ namespace rbf_gnss_ins_driver {
     }
 
     void GnssInsDriver::load_parameters() {
-        config_params_.working_frequency_ = this->declare_parameter("working_frequency", 200);
+        config_params_.working_frequency_ = this->declare_parameter("rbf_gnss_ins_driver.working_frequency", 200);
 
-        config_params_.serial_.serial_port_ = this->declare_parameter("serial_config.port", "/dev/ttyUSB0");
-        config_params_.serial_.baudrate_ = this->declare_parameter("serial_config.baudrate", 460800);
+        config_params_.serial_.serial_port_ = this->declare_parameter("rbf_gnss_ins_driver.serial_config.port", "/dev/ttyUSB0");
+        config_params_.serial_.baudrate_ = this->declare_parameter("rbf_gnss_ins_driver.serial_config.baudrate", 460800);
         
-        config_params_.topics_.rtcm_topic_ = this->declare_parameter("topic_config.rtcm_topic", "rtcm");
-        config_params_.topics_.imu_topic_ = this->declare_parameter("topic_config.imu_topic", "imu");
-        config_params_.topics_.nav_sat_fix_topic_ = this->declare_parameter("topic_config.nav_sat_fix_topic", "nav_sat_fix");
-        config_params_.topics_.twist_topic_ = this->declare_parameter("topic_config.twist_topic", "twist");
-        config_params_.topics_.temperature_topic_ = this->declare_parameter("topic_config.temperature_topic", "temperature");
+        config_params_.topics_.rtcm_topic_ = this->declare_parameter("rbf_gnss_ins_driver.topic_config.rtcm_topic", "rtcm");
+        config_params_.topics_.imu_topic_ = this->declare_parameter("rbf_gnss_ins_driver.topic_config.imu_topic", "imu");
+        config_params_.topics_.nav_sat_fix_topic_ = this->declare_parameter("rbf_gnss_ins_driver.topic_config.nav_sat_fix_topic", "nav_sat_fix");
+        config_params_.topics_.twist_topic_ = this->declare_parameter("rbf_gnss_ins_driver.topic_config.twist_topic", "twist");
+        config_params_.topics_.temperature_topic_ = this->declare_parameter("rbf_gnss_ins_driver.topic_config.temperature_topic", "temperature");
 
-        config_params_.frames_.gnss_frame_ = this->declare_parameter("frame_config.gnss_frame", "gnss");
-        config_params_.frames_.imu_frame_ = this->declare_parameter("frame_config.imu_frame", "imu");
+        config_params_.frames_.gnss_frame_ = this->declare_parameter("rbf_gnss_ins_driver.frame_config.gnss_frame", "gnss");
+        config_params_.frames_.imu_frame_ = this->declare_parameter("rbf_gnss_ins_driver.frame_config.imu_frame", "imu");
    
-        config_params_.use_ros_time_ = this->declare_parameter("time_config.use_ros_time", true);
+        config_params_.use_ros_time_ = this->declare_parameter("rbf_gnss_ins_driver.time_config.use_ros_time", true);
    
-        config_params_.frames_.odometry_frame_ = this->declare_parameter("odometry_config.odometry_frame", "odometry");
-        config_params_.topics_.odometry_topic_ = this->declare_parameter("odometry_config.odometry_topic", "odometry");
-        config_params_.odometry_.use_odometry_ = this->declare_parameter("odometry_config.use_odometry", false);
+        config_params_.frames_.odometry_frame_ = this->declare_parameter("rbf_gnss_ins_driver.odometry_config.odometry_frame", "odometry");
+        config_params_.topics_.odometry_topic_ = this->declare_parameter("rbf_gnss_ins_driver.odometry_config.odometry_topic", "odometry");
+        config_params_.odometry_.use_odometry_ = this->declare_parameter("rbf_gnss_ins_driver.odometry_config.use_odometry", false);
    
-        config_params_.odometry_.lat_origin_ = this->declare_parameter("origin_config.latitude", 0.0);
-        config_params_.odometry_.long_origin_ = this->declare_parameter("origin_config.longitude", 0.0);
-        config_params_.odometry_.alt_origin_ = this->declare_parameter("origin_config.altitude", 0.0);
+        config_params_.odometry_.lat_origin_ = this->declare_parameter("rbf_gnss_ins_driver.origin_config.latitude", 0.0);
+        config_params_.odometry_.long_origin_ = this->declare_parameter("rbf_gnss_ins_driver.origin_config.longitude", 0.0);
+        config_params_.odometry_.alt_origin_ = this->declare_parameter("rbf_gnss_ins_driver.origin_config.altitude", 0.0);
 
-        config_params_.altitude_mode_ = this->declare_parameter("altitude_config.altitude_mode", 0);
+        config_params_.altitude_mode_ = this->declare_parameter("rbf_gnss_ins_driver.altitude_config.altitude_mode", 0);
 
         RCLCPP_INFO(this->get_logger(), "-----------------------PARAMS-----------------------");
         RCLCPP_INFO(this->get_logger(), "working_frequency: %d", config_params_.working_frequency_);
